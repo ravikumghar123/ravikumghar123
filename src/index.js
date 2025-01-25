@@ -12,17 +12,20 @@ connectDB()
         console.log(`server is running at port : ${process.env.PORT}`);
     });
 });
-try{
+    try{
+    await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
     app.on("err", (err) =>{
-        console.log("err: ", err);
+        console.log("Err: ", err);
         throw err
+    })
+
+    app.listen(process.env.PORT, () =>{
+        console.log(`App is listening on port ${process.env.PORT}`);
+    })
     }
-)}
-catch(  (err)=> {
+ catch((err)=> {
     console.log("MONGO db connection failed !!! ", err);
 })
-
-\
 
 /*import express from "express";
 const app = express();
