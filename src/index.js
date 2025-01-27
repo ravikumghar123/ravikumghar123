@@ -13,19 +13,19 @@ connectDB()
     });
 });
     try{
-    await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
-    app.on("err", (err) =>{
-        console.log("Err: ", err);
-        throw err
-    })
-
-    app.listen(process.env.PORT, () =>{
-        console.log(`App is listening on port ${process.env.PORT}`);
-    })
+    await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`,{
+        useNewUrlParser: true,
+        userUnifiedTopology: true,
+    });
+  console.log("MonogoDB connection successful");
+  const PORT = process.env.PORT || 8000;
+    app.listen(PORT, () =>{
+        console.log(`App is listening on port ${PORT}`);
+    });
     }
- catch((err)=> {
+ catch(err) {
     console.log("MONGO db connection failed !!! ", err);
-})
+}
 
 /*import express from "express";
 const app = express();
