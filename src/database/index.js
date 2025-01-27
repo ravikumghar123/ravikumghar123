@@ -11,4 +11,4 @@ const connect = async()=>{
     }
 }
 
-export default connectDB;
+export { connectDB};
