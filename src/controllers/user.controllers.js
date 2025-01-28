@@ -12,6 +12,7 @@ const registerUser = asyncHandler( async(req, res) => {
      7 remove password and refresh token filed from response
      8 check for user creation
      9 return res*/
+
     /*res.status(200).json({
         message: "ok"
     })*/

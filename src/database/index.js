@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { DB_NAME } from "../constants.js";
+//import { connectDB } from "./database/index.js"
 
 const connect = async()=>{
     try{
@@ -10,5 +11,9 @@ const connect = async()=>{
         process.env(1)
     }
 }
+const connectDB = require('./database/index.js');
 
-export { connectDB};
+export const connectDB = () =>{
+ 
+};
+//export { connectDB};
