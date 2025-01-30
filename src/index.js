@@ -1,31 +1,45 @@
 import dotenv from "dotenv";
-dotenv.config({ path:'./env'});
 import connectDB from "./database/index.js";
 
 dotenv.config({
-    path: './env'
+    path: './.env'
+});
+/*const mongoose = require('mongoose');
+require('dotenv').config();*/
+
+(async () => {
+    try{
+        const connectionInstance = await mongoose.connect(
+            `${process.env.MONGODB_URI}/${process.env.DB_NAME}`,
+            {
+                userNewUrlParser: true,
+                useUnifiedTopology: true,
+            }
+        );
+        console.log("MongoDB connected successfully");
+    }catch(err){
+        console.log("MongoDB connection failed", err);
+    }
 });
 
-connectDB()
+/*connectDB()
 .then(()=>{
     app.listen(process.env.PORT || 8000, ()=>{
         console.log(`server is running at port : ${process.env.PORT}`);
     });
 });
+
+( async ()=>{
     try{
-    await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`,{
+    await mongoose.connect(`${process.env.MONGODB_URI}/${process.env.DB_NAME}`,{
         useNewUrlParser: true,
-        userUnifiedTopology: true,
+        useUnifiedTopology: true,
     });
-  console.log("MonogoDB connection successful");
-  const PORT = process.env.PORT || 8000;
-    app.listen(PORT, () =>{
-        console.log(`App is listening on port ${PORT}`);
-    });
-    }
- catch(err) {
+    console.log("MongoDB connected successfully");
+}catch(err) {
     console.log("MONGO db connection failed !!! ", err);
 }
+});*/
 
 /*import express from "express";
 const app = express();
@@ -46,5 +60,4 @@ const app = express();
         console.error("ERRORzz: ", error)
         throw err
     }
-})()*/
-
+})*/
