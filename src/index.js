@@ -7,7 +7,7 @@ dotenv.config({
 /*const mongoose = require('mongoose');
 require('dotenv').config();*/
 
-(async () => {
+/*(async () => {
     try{
         const connectionInstance = await mongoose.connect(
             `${process.env.MONGODB_URI}/${process.env.DB_NAME}`,
@@ -20,14 +20,13 @@ require('dotenv').config();*/
     }catch(err){
         console.log("MongoDB connection failed", err);
     }
-});
+});*/
 
-/*connectDB()
-.then(()=>{
+connectDB().then(()=>{
     app.listen(process.env.PORT || 8000, ()=>{
         console.log(`server is running at port : ${process.env.PORT}`);
     });
-});
+}),
 
 ( async ()=>{
     try{
@@ -39,7 +38,7 @@ require('dotenv').config();*/
 }catch(err) {
     console.log("MONGO db connection failed !!! ", err);
 }
-});*/
+});
 
 /*import express from "express";
 const app = express();
@@ -51,13 +50,13 @@ const app = express();
         console.log("Error: ", error);
         throw error
     })
-
-    app.listen(process.env.PORT, () =>{
+T
+    app.listen(process.env.POR, () =>{
         console.log(`App is listening on port ${process.env.PORT}`);
     })
     }
     catch(error){
-        console.error("ERRORzz: ", error)
+        console.error("ERROR: ", error)
         throw err
     }
 })*/
